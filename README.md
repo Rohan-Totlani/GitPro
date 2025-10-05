@@ -1,6 +1,9 @@
 # Gitpro - GitHub App for summaries and reviewer suggestions
 
 FastAPI app that receives GitHub webhooks, summarizes issues/PRs using Google Gemini (1.5 Flash), and suggests reviewers using sentence-transformers embeddings and FAISS.
+<p align="center">
+  <img src="images/logo.png" alt="GitPro Logo" height = "50%" width = "50%"/>
+</p>
 
 ## Environment variables
 - GITHUB_APP_ID - GitHub app id
