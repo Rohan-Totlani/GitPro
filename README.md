@@ -1,9 +1,8 @@
-Gitpro - GitHub App with LLM-powered summaries and reviewer suggestions
+# Gitpro - GitHub App for summaries and reviewer suggestions
 
-Overview
-- FastAPI app that receives GitHub webhooks, summarizes issues/PRs using Google Gemini (1.5 Flash), and suggests reviewers using sentence-transformers embeddings and FAISS.
+FastAPI app that receives GitHub webhooks, summarizes issues/PRs using Google Gemini (1.5 Flash), and suggests reviewers using sentence-transformers embeddings and FAISS.
 
-Environment variables
+## Environment variables
 - GITHUB_APP_ID - GitHub app id
 - GITHUB_APP_PRIVATE_KEY_PATH - path to private key file
 - GITHUB_WEBHOOK_SECRET - webhook secret
@@ -12,19 +11,19 @@ Environment variables
 - GOOGLE_LOCATION - Google region (default: us-central1)
 - EMBEDDING_MODEL - sentence-transformers model name (default: all-mpnet-base-v2)
 
-Run locally with Docker
+## Run locally with Docker
 ```bash
 docker build -t gitpro:local .
 docker run -e GITHUB_WEBHOOK_SECRET=foo -e GOOGLE_API_KEY=bar -p 8000:8000 gitpro:local
 ```
 
-Deploying to Render
+## Deploying to Render
 - Create a Web Service pointing to this repository, set the environment variables in Render dashboard, and use the provided Dockerfile.
 
-Notes
+### Notes
 - This repo provides a minimal demonstration. You should add secure storage for embeddings, background workers, and robust error handling before production.
 
-Keeping secrets private (local development)
+## Keeping secrets private (local development)
 - This repository includes a `.env.example` with variable names. Create a `.env` file in the project root with your real values. `.env` is included in `.gitignore` and will not be committed.
 - Example:
 ```text
@@ -33,12 +32,12 @@ cp .env.example .env
 ```
 - The app loads `.env` automatically via `python-dotenv` (see `settings.py`).
 
-Keeping secrets private (GitHub)
+## Keeping secrets private (GitHub)
 - Never commit private keys, tokens, or `.env` to your git repository.
 - Add `.env` to `.gitignore` (already added).
 - Use a `.env.example` (checked in) to document required variables without exposing secrets.
 
-Deploying securely to Render
+## Deploying securely to Render
 - Render and other platforms provide a secure secrets manager. Do NOT push `.env` to your git remote.
 - Steps to deploy on Render safely:
 	1. Create a new Web Service on Render and connect your GitHub repository.
