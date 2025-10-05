@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+.env
+.env.local
+*.py[cod]
+*.egg-info/
+dist/
+build/
+secrets/
+romeo-tango-test.2025-10-04.private-key.pem

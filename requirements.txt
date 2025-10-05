@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pydantic[dotenv]
+python-jose[cryptography]
+PyGithub
+httpx
+python-dotenv
+sentence-transformers
+torch
+faiss-cpu
+numpy
